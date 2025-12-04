@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Writing Assistant
 
-## Getting Started
+**AI Writing Assistant** es un asistente de escritura con IA orientado a portafolios profesionales. Permite **reescribir**, **resumir** y **expandir** textos en español, con selección de modo, tono, historial de transformaciones y presets rápidos.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Características principales
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Modos de escritura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Reescribir**: mejora claridad y estilo sin alterar el significado.
+- **Expandir**: añade contexto, ejemplos y detalles.
+- **Resumir**: condensa contenido manteniendo ideas clave.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Tonos disponibles
 
-## Learn More
+- Profesional  
+- Neutro  
+- Casual  
+- Creativo  
 
-To learn more about Next.js, take a look at the following resources:
+### Presets rápidos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Email profesional  
+- Resumen ejecutivo  
+- Historia creativa  
+- Mensaje casual  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### UI / UX
 
-## Deploy on Vercel
+- Editor dual (entrada / salida).
+- Botón de copia rápida.
+- Historial de ejecuciones (hasta 20).
+- Diseño oscuro tipo SaaS, responsive y limpio.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### API de IA
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Endpoint: `POST /api/ai`
+- Payload: `{ text, mode, tone }`
+- Respuesta mock local (`from: "mock"`), preparado para integrar OpenAI u otros modelos.
+
+---
+
+## 🛠️ Stack técnico
+
+- **Next.js 16 (App Router + React Compiler)**
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS 3**
+- **API Routes** (`src/app/api/ai/route.ts`)
+
+---
+
+## 📁 Estructura principal
+
+```txt
+ai-writing-assistant/
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── ai/
+│   │   │       └── route.ts     # Endpoint IA (mock, listo para OpenAI)
+│   │   ├── layout.tsx           # Layout global y metadata
+│   │   ├── page.tsx             # UI principal del asistente
+│   │   └── globals.css          # Tailwind + estilos globales
+│   └── ...
+├── public/
+│   └── favicon.ico
+├── tailwind.config.ts
+├── postcss.config.mjs
+├── package.json
+├── tsconfig.json
+└── README.md
